@@ -100,6 +100,51 @@
 
 
 
+
+
+
+
+
+
+Пример таблиц индексирования
+---
+
+- Table documents
+
+|  id  |name   |
+|-----------------|
+|1|Doc1.doc|
+|2|hh12.doc|
+|3|test.doc|
+
+- Table inverted index
+
+|word|docID|wordQuantity|
+|-----------------------------------------|
+|cat|1|3|
+|cat|2|44|
+|dog|2|23|
+
+Table word position
+
+|word|docID|wordPosition(line, number)|
+|-----------------------------------------|
+|cat|1|'3, 3'|
+|cat|1|'5, 23'|
+|cat|1|'13, 354'|
+|cat|2|'21, 73'|
+|cat|2|'23, 7'|
+|dog|2|'67,1'|
+
+
+
+
+
+
+
+
+
+
 Источники
 ---
 
