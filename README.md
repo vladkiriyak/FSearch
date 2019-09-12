@@ -156,6 +156,6 @@ Table word position
 
 - Vreda Pieterse and Paul E. Black. "trie" in [Dictionary of Algorithms and Data Structures](http://www.nist.gov/dads/HTML/invertedIndex.html)
 
-- [Introduction to information retrieval](http://nlp.stanford.edu/IR-book/html/htmledition/irbook.html)
+- Christofer D. Manning [Introduction to information retrieval](http://nlp.stanford.edu/IR-book/html/htmledition/irbook.html)
 
 
