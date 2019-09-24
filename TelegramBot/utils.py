@@ -1,6 +1,8 @@
+import base64
 import os
 
 import aiofiles as aiof
+import textract
 from aiohttp import ClientResponse
 from aiohttp_requests import requests
 from upload_config import config
@@ -8,6 +10,14 @@ from upload_config import config
 
 async def set_webhook():
     await requests.get(f"https://api.telegram.org/bot{config['token']}/setWebhook?url={config['tunneling_url']}")
+
+
+async def decode_docx_bytes(content: bytes) -> str:
+    async with aiof.open(f"/home/vlad/FSearch/temp_file.docx", mode='wb') as file:
+        await file.write(content)
+        await file.flush()
+
+    return textract.process("/home/vlad/FSearch/temp_file.docx").decode()
 
 
 async def get_file_content(file_id: int):
@@ -20,18 +30,19 @@ async def get_file_content(file_id: int):
     file_content: bytes = await (await requests.get(
         f"https://api.telegram.org/file/bot{config['token']}/{file_path}")).read()
 
-    return file_content.decode(encoding='utf-8', errors='ignore')
+    return await decode_docx_bytes(file_content)
 
 
 async def create_telegraph_page(title: str, body: str) -> str:
-    content = '[{"tag":"p","children":["' + body + '"]}]'
+    content = {
+        'access_token': config["telegraph_access_token"],
+        'title': title,
+        'content': [{"tag": "p", "children": [body]}],
+    }
 
     page_url = (await (
-        await requests.get(
-            "https://api.telegra.ph/createPage? " +
-            f"access_token={config['telegraph_access_token']}" +
-            f"&title={title}" +
-            f"&content={content}"
+        await requests.post(
+            "https://api.telegra.ph/createPage", json=content
         )
     ).json())['result']['url']
 
@@ -44,7 +55,7 @@ async def indexing_file(user_id: int, file_name: str, file_content: str):
         'file_name': file_name,
         'file_content': file_content
     }
-    await requests.post(f'http://localhost:9200/documents/doc', json=indexing_json)
+    await requests.post(f'http://localhost:9200/document/doc', json=indexing_json)
 
 
 async def send_telegram_message(user_id: int, message: str):
