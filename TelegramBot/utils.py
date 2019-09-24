@@ -58,6 +58,43 @@ async def indexing_file(user_id: int, file_name: str, file_content: str):
     await requests.post(f'http://localhost:9200/document/doc', json=indexing_json)
 
 
+async def processing_text_message(request: dict):
+    user_id = request['message']['from']['id']
+    text = request['message']['text']
+
+    if text[:7] != '/search':
+        await send_telegram_message(request['message']['from']['id'], "Please enter '/search %search string%'")
+    else:
+        search_query = ({"query": {"term": {"file_content": text[8:]}}})
+
+        elastic_response = await (await requests.get('http://localhost:9200/_search', json=search_query)).json()
+
+        if elastic_response['hits']['total']['value'] == 0:
+            await send_telegram_message(request['message']['from']['id'], "Sorry, not found :(")
+        else:
+            page_url = await create_telegraph_page(
+                "Hello",
+                elastic_response['hits']["hits"][0]['_source']['file_content']
+            )
+            await send_telegram_message(request['message']['from']['id'], page_url)
+
+
+async def processing_document_message(request: dict):
+    file_content = await get_file_content(request['message']['document']['file_id'])
+
+    await indexing_file(
+        request['message']['from']['id'],
+        request['message']['document']['file_name'],
+        file_content
+    )
+
+    # await save_file(
+    #     request['message']['from']['id'],
+    #     request['message']['document']['file_name'],
+    #     file_content
+    # )
+
+
 async def send_telegram_message(user_id: int, message: str):
     await requests.get(f"{config['URL']}/sendMessage?chat_id={user_id}&text={message}")
 

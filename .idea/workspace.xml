@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a907aa4-9f6b-4fb9-bcee-8bf22bdccbfa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/FSearch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FSearch.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelegramBot/client_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramBot/client_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelegramBot/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramBot/utils.py" afterDir="false" />
@@ -205,7 +203,7 @@
       <option name="presentableId" value="Default" />
       <updated>1568737498627</updated>
       <workItem from="1568737500360" duration="26316000" />
-      <workItem from="1569153009201" duration="42041000" />
+      <workItem from="1569153009201" duration="43040000" />
     </task>
     <task id="LOCAL-00001" summary="add gitignore">
       <created>1569170902486</created>
@@ -221,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569170939164</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix bug with telegraph">
+      <created>1569341242680</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1569341242680</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +247,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="add gitignore" />
+    <MESSAGE value="fix bug with telegraph" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug with telegraph" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
