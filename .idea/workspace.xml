@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2a907aa4-9f6b-4fb9-bcee-8bf22bdccbfa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelegramBot/client_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramBot/client_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelegramBot/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramBot/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,7 +34,6 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
-    <property name="ToolWindowStatistic.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -45,7 +43,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -203,7 +201,7 @@
       <option name="presentableId" value="Default" />
       <updated>1568737498627</updated>
       <workItem from="1568737500360" duration="26316000" />
-      <workItem from="1569153009201" duration="43040000" />
+      <workItem from="1569153009201" duration="46337000" />
     </task>
     <task id="LOCAL-00001" summary="add gitignore">
       <created>1569170902486</created>
@@ -226,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569341242680</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactoring">
+      <created>1569342276093</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1569342276094</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,7 +253,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add gitignore" />
     <MESSAGE value="fix bug with telegraph" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug with telegraph" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

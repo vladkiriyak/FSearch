@@ -55,7 +55,7 @@ async def indexing_file(user_id: int, file_name: str, file_content: str):
         'file_name': file_name,
         'file_content': file_content
     }
-    await requests.post(f'http://localhost:9200/document/doc', json=indexing_json)
+    await requests.post(f'http://localhost:9200/my_index/doc', json=indexing_json)
 
 
 async def processing_text_message(request: dict):
@@ -65,7 +65,16 @@ async def processing_text_message(request: dict):
     if text[:7] != '/search':
         await send_telegram_message(request['message']['from']['id'], "Please enter '/search %search string%'")
     else:
-        search_query = ({"query": {"term": {"file_content": text[8:]}}})
+        search_query = {
+            "query": {
+                "bool": {
+                    "must": [
+                        {"match": {"file_content": text[8:]}},
+                        {"match": {"user_id": user_id}}
+                    ]
+                }
+            }
+        }
 
         elastic_response = await (await requests.get('http://localhost:9200/_search', json=search_query)).json()
 
