@@ -82,7 +82,7 @@ async def processing_text_message(request: dict):
             await send_telegram_message(request['message']['from']['id'], "Sorry, not found :(")
         else:
             page_url = await create_telegraph_page(
-                "Hello",
+                elastic_response['hits']["hits"][0]['_source']['file_name'],
                 elastic_response['hits']["hits"][0]['_source']['file_content']
             )
             await send_telegram_message(request['message']['from']['id'], page_url)
