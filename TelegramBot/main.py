@@ -13,7 +13,7 @@ async def init_app():
     app.add_routes(client_utils.routes)
     app['config'] = {}
 
-    # await set_webhook()
+    await set_webhook()
 
     logging.basicConfig(level=logging.DEBUG)
 

@@ -5,6 +5,8 @@ from aiohttp_requests import requests
 from utils import get_message_type, get_file_content, save_file, indexing_file, create_telegraph_page, \
     send_telegram_message, processing_document_message, processing_text_message
 
+from log import loging
+
 routes = web.RouteTableDef()
 
 
@@ -18,10 +20,21 @@ async def telegram_handler(request: Request):
     request: dict = await request.json()
     message_type = await get_message_type(request)
 
+    username = request['message']['from'].get('username')
+    user_message = request['message'].get('text')
+    # print(request['message']['from'].get('id'))
+    # print(request['message'].get('text'))
+
     if message_type == "text":
+
+        await loging.put_log_in_file(f" | {username} | {user_message}")
+
         await processing_text_message(request)
 
     elif message_type == "document":
+
+        await loging.put_log_in_file(f" | {username} | UPLOAD FILE")
+
         await processing_document_message(request)
 
     return web.Response(text='ok')

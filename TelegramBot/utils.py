@@ -12,15 +12,15 @@ async def set_webhook():
     await requests.get(f"https://api.telegram.org/bot{config['token']}/setWebhook?url={config['tunneling_url']}")
 
 
-async def decode_docx_bytes(content: bytes) -> str:
-    async with aiof.open(f"/home/vlad/FSearch/temp_file.docx", mode='wb') as file:
+async def decode_document_bytes(content: bytes, user_id: int) -> str:
+    async with aiof.open(f"/home/vlad/FSearch/DocumentStorage/temp_file_{str(user_id)}.docx", mode='wb') as file:
         await file.write(content)
         await file.flush()
 
-    return textract.process("/home/vlad/FSearch/temp_file.docx").decode()
+    return textract.process(f"/home/vlad/FSearch/DocumentStorage/temp_file_{str(user_id)}.docx").decode()
 
 
-async def get_file_content(file_id: int):
+async def get_file_content(file_id: int, user_id: int) -> str:
     from upload_config import config
 
     file_info_response: ClientResponse = await requests.get(f"{config['URL']}/getfile?file_id={file_id}")
@@ -30,7 +30,7 @@ async def get_file_content(file_id: int):
     file_content: bytes = await (await requests.get(
         f"https://api.telegram.org/file/bot{config['token']}/{file_path}")).read()
 
-    return await decode_docx_bytes(file_content)
+    return await decode_document_bytes(file_content, user_id)
 
 
 async def create_telegraph_page(title: str, body: str) -> str:
@@ -89,7 +89,10 @@ async def processing_text_message(request: dict):
 
 
 async def processing_document_message(request: dict):
-    file_content = await get_file_content(request['message']['document']['file_id'])
+    file_content = await get_file_content(
+        request['message']['document']['file_id'],
+        request['message']['from']['id']
+    )
 
     await indexing_file(
         request['message']['from']['id'],
