@@ -22,12 +22,11 @@ async def telegram_handler(request: Request):
 
     username = request['message']['from'].get('username')
     user_message = request['message'].get('text')
-    # print(request['message']['from'].get('id'))
-    # print(request['message'].get('text'))
+    user_id = request['message']['from'].get('id')
 
     if message_type == "text":
 
-        await loging.put_log_in_file(f" | {username} | {user_message}")
+        await loging.put_log_in_file(f" | {user_id} | {username} | {user_message}")
 
         await processing_text_message(request)
 
@@ -35,6 +34,13 @@ async def telegram_handler(request: Request):
 
         await loging.put_log_in_file(f" | {username} | UPLOAD FILE")
 
-        await processing_document_message(request)
+        try:
+            await processing_document_message(request)
+        except Exception as exception:
+            print(f"\x1b[0;31;48m{exception}\x1b[0m")
+            await send_telegram_message(
+                request['message']['from']['id'],
+                "Sorry, we have problem with document processing"
+            )
 
     return web.Response(text='ok')

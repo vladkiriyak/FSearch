@@ -62,7 +62,7 @@ async def processing_text_message(request: dict):
     user_id = request['message']['from']['id']
     text = request['message']['text']
 
-    if text[:7] != '/search':
+    if text[:8] != '/search ':
         await send_telegram_message(request['message']['from']['id'], "Please enter '/search %search string%'")
     else:
         search_query = {
@@ -81,11 +81,16 @@ async def processing_text_message(request: dict):
         if elastic_response['hits']['total']['value'] == 0:
             await send_telegram_message(request['message']['from']['id'], "Sorry, not found :(")
         else:
-            page_url = await create_telegraph_page(
-                elastic_response['hits']["hits"][0]['_source']['file_name'],
-                elastic_response['hits']["hits"][0]['_source']['file_content']
-            )
-            await send_telegram_message(request['message']['from']['id'], page_url)
+            try:
+                page_url = await create_telegraph_page(
+                    elastic_response['hits']["hits"][0]['_source']['file_name'],
+                    elastic_response['hits']["hits"][0]['_source']['file_content']
+                )
+                await send_telegram_message(request['message']['from']['id'], page_url)
+            except Exception as exception:
+                print("\x1b[0;31;48mException in create_telegraph_page\x1b[0m")
+                print(f"\x1b[0;31;48m{exception}\x1b[0m")
+                print()
 
 
 async def processing_document_message(request: dict):
@@ -99,12 +104,7 @@ async def processing_document_message(request: dict):
         request['message']['document']['file_name'],
         file_content
     )
-
-    # await save_file(
-    #     request['message']['from']['id'],
-    #     request['message']['document']['file_name'],
-    #     file_content
-    # )
+    await send_telegram_message(request['message']['from']['id'], "Загрузка файла прошла успешно")
 
 
 async def send_telegram_message(user_id: int, message: str):

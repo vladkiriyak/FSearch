@@ -1,19 +1,17 @@
 button = document.getElementById("search-btn");
-search_field = document.getElementById("search-field");
+search_field = document.getElementById("search-txt");
 
 
 button.onclick = function () {
 
     let xhr = new XMLHttpRequest();
 
-
     xhr.open(
         "GET",
-        "/getDocument?search_query=" + search_field.innerText
+        "/getDocument?search_query=" + search_field.value
     );
     xhr.send();
-
-    alert(xhr)
+//
 
 
 

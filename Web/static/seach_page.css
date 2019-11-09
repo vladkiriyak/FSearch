@@ -43,7 +43,17 @@ body {
 .search-btn > i {
     font-size: 30px;
 }
+#logo{
 
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    font-size: 300%;
+    transform: translate(-50%, -50%);
+    height: 40px;
+
+
+}
 .search-txt {
     border: none;
     background: none;
@@ -54,6 +64,6 @@ body {
     font-size: 16px;
     transition: 0.4s;
     line-height: 40px;
-    width: 0px;
+    width: 240px;
     font-weight: bold;
 }
