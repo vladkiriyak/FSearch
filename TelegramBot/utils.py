@@ -120,11 +120,3 @@ async def save_file(user_id: int, file_name: str, file_content: str):
         await file.flush()
 
 
-async def get_message_type(request: dict):
-    if "message" in request.keys():
-        if "document" in request['message'].keys():
-            return "document"
-        elif "text" in request['message'].keys():
-            return "text"
-    else:
-        return None

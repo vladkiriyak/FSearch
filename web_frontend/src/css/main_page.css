@@ -1,0 +1,27 @@
+
+.search-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #e6dee8;
+    height: 50px;
+    width: 300px;
+    border-radius: 50px;
+    outline:none;
+    padding: 20px;
+}
+
+
+
+#logo{
+
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    font-size: 300%;
+    transform: translate(-50%, -50%);
+    height: 40px;
+
+
+}

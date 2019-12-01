@@ -15,15 +15,15 @@ body {
     padding: 10px;
 }
 
-.search-window:hover > .search-txt {
-    width: 240px;
-    padding: 0 6px;
-}
-
-.search-window:hover > .search-btn {
-    background: white;
-    color: black;
-}
+/*.search-window:hover > .search-txt {*/
+/*    width: 240px;*/
+/*    padding: 0 6px;*/
+/*}*/
+/**/
+/*.search-window:hover > .search-btn {*/
+/*    background: white;*/
+/*    color: black;*/
+/*}*/
 
 .search-btn {
     color: #e84118;
@@ -65,5 +65,9 @@ body {
     transition: 0.4s;
     line-height: 40px;
     width: 240px;
+    padding: 0 6px;
+
+
+
     font-weight: bold;
 }
