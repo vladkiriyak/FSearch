@@ -1,0 +1,966 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="fsearch@localhost">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.17">
+    <root id="1">
+      <ServerVersion>11.6</ServerVersion>
+      <StartupTime>1577022590</StartupTime>
+    </root>
+    <database id="2" parent="1" name="fsearch">
+      <ObjectId>19474</ObjectId>
+      <Owner>postgres</Owner>
+      <IntrospectionStateNumber>10121</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Relations>sequence|table|19475|19477|1
+sequence|table|19486|19488|1
+sequence|table|19496|19498|1
+sequence|table|19569|19571|1
+sequence|table|19606|19608|1
+sequence|table|19504|19506|1
+sequence|table|19514|19516|1
+sequence|table|19548|19550|1
+sequence|table|19561|19563|1
+</Relations>
+    </database>
+    <database id="3" parent="1" name="main">
+      <ObjectId>19135</ObjectId>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="4" parent="1" name="postgres">
+      <ObjectId>19305</ObjectId>
+      <Owner>postgres</Owner>
+    </database>
+    <role id="5" parent="1" name="northwind_user">
+      <ObjectId>18744</ObjectId>
+      <CanLogin>1</CanLogin>
+    </role>
+    <role id="6" parent="1" name="pg_execute_server_program">
+      <ObjectId>4571</ObjectId>
+    </role>
+    <role id="7" parent="1" name="pg_monitor">
+      <ObjectId>3373</ObjectId>
+    </role>
+    <role id="8" parent="1" name="pg_read_all_settings">
+      <ObjectId>3374</ObjectId>
+    </role>
+    <role id="9" parent="1" name="pg_read_all_stats">
+      <ObjectId>3375</ObjectId>
+    </role>
+    <role id="10" parent="1" name="pg_read_server_files">
+      <ObjectId>4569</ObjectId>
+    </role>
+    <role id="11" parent="1" name="pg_signal_backend">
+      <ObjectId>4200</ObjectId>
+    </role>
+    <role id="12" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+    </role>
+    <role id="13" parent="1" name="pg_write_server_files">
+      <ObjectId>4570</ObjectId>
+    </role>
+    <role id="14" parent="1" name="postgres">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <Replication>1</Replication>
+      <BypassRls>1</BypassRls>
+    </role>
+    <role id="15" parent="1" name="username">
+      <ObjectId>16384</ObjectId>
+      <CanLogin>1</CanLogin>
+    </role>
+    <role id="16" parent="1" name="vlad">
+      <ObjectId>16385</ObjectId>
+      <CanLogin>1</CanLogin>
+    </role>
+    <schema id="17" parent="2" name="information_schema">
+      <ObjectId>12834</ObjectId>
+      <StateNumber>365</StateNumber>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="18" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+      <Comment>system catalog schema</Comment>
+      <StateNumber>358</StateNumber>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="19" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <Comment>standard public schema</Comment>
+      <StateNumber>359</StateNumber>
+      <Owner>postgres</Owner>
+      <IntrospectionStateNumber>10122</IntrospectionStateNumber>
+      <Current>1</Current>
+    </schema>
+    <access-method id="20" parent="2" name="btree">
+      <ObjectId>403</ObjectId>
+      <Comment>b-tree index access method</Comment>
+      <StateNumber>1</StateNumber>
+      <Handler>pg_catalog.bthandler</Handler>
+      <HandlerId>330</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="21" parent="2" name="hash">
+      <ObjectId>405</ObjectId>
+      <Comment>hash index access method</Comment>
+      <StateNumber>1</StateNumber>
+      <Handler>pg_catalog.hashhandler</Handler>
+      <HandlerId>331</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="22" parent="2" name="gist">
+      <ObjectId>783</ObjectId>
+      <Comment>GiST index access method</Comment>
+      <StateNumber>1</StateNumber>
+      <Handler>pg_catalog.gisthandler</Handler>
+      <HandlerId>332</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="23" parent="2" name="gin">
+      <ObjectId>2742</ObjectId>
+      <Comment>GIN index access method</Comment>
+      <StateNumber>1</StateNumber>
+      <Handler>pg_catalog.ginhandler</Handler>
+      <HandlerId>333</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="24" parent="2" name="spgist">
+      <ObjectId>4000</ObjectId>
+      <Comment>SP-GiST index access method</Comment>
+      <StateNumber>1</StateNumber>
+      <Handler>pg_catalog.spghandler</Handler>
+      <HandlerId>334</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="25" parent="2" name="brin">
+      <ObjectId>3580</ObjectId>
+      <Comment>block range index (BRIN) access method</Comment>
+      <StateNumber>1</StateNumber>
+      <Handler>pg_catalog.brinhandler</Handler>
+      <HandlerId>335</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <extension id="26" parent="2" name="plpgsql">
+      <ObjectId>13116</ObjectId>
+      <Comment>PL/pgSQL procedural language</Comment>
+      <StateNumber>518</StateNumber>
+      <Version>1.0</Version>
+      <SchemaName>pg_catalog</SchemaName>
+      <SchemaId>11</SchemaId>
+    </extension>
+    <sequence id="27" parent="19" name="auth_group_id_seq">
+      <ObjectId>19504</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <Owner>postgres</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="28" parent="19" name="auth_group_permissions_id_seq">
+      <ObjectId>19514</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <Owner>postgres</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="29" parent="19" name="auth_permission_id_seq">
+      <ObjectId>19496</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <Owner>postgres</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="30" parent="19" name="django_admin_log_id_seq">
+      <ObjectId>19606</ObjectId>
+      <StateNumber>10101</StateNumber>
+      <Owner>postgres</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="31" parent="19" name="django_content_type_id_seq">
+      <ObjectId>19486</ObjectId>
+      <StateNumber>10087</StateNumber>
+      <Owner>postgres</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="32" parent="19" name="django_migrations_id_seq">
+      <ObjectId>19475</ObjectId>
+      <StateNumber>10086</StateNumber>
+      <Owner>postgres</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="33" parent="19" name="searcher_myuser_groups_id_seq">
+      <ObjectId>19561</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <Owner>postgres</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="34" parent="19" name="searcher_myuser_id_seq">
+      <ObjectId>19548</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <Owner>postgres</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="35" parent="19" name="searcher_myuser_user_permissions_id_seq">
+      <ObjectId>19569</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <Owner>postgres</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <table id="36" parent="19" name="auth_group">
+      <ObjectId>19506</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>10089</StateNumber>
+    </table>
+    <table id="37" parent="19" name="auth_group_permissions">
+      <ObjectId>19516</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>10089</StateNumber>
+    </table>
+    <table id="38" parent="19" name="auth_permission">
+      <ObjectId>19498</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>10089</StateNumber>
+    </table>
+    <table id="39" parent="19" name="django_admin_log">
+      <ObjectId>19608</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>10101</StateNumber>
+    </table>
+    <table id="40" parent="19" name="django_content_type">
+      <ObjectId>19488</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>10089</StateNumber>
+    </table>
+    <table id="41" parent="19" name="django_migrations">
+      <ObjectId>19477</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>10086</StateNumber>
+    </table>
+    <table id="42" parent="19" name="django_session">
+      <ObjectId>19640</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>10108</StateNumber>
+    </table>
+    <table id="43" parent="19" name="searcher_myuser">
+      <ObjectId>19550</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>10106</StateNumber>
+    </table>
+    <table id="44" parent="19" name="searcher_myuser_groups">
+      <ObjectId>19563</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>10100</StateNumber>
+    </table>
+    <table id="45" parent="19" name="searcher_myuser_user_permissions">
+      <ObjectId>19571</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>10100</StateNumber>
+    </table>
+    <column id="46" parent="36" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10089</StateNumber>
+      <DefaultExpression>nextval(&apos;auth_group_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="47" parent="36" name="name">
+      <Position>2</Position>
+      <DataType>varchar(150)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10098</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="48" parent="36" name="auth_group_pkey">
+      <ObjectId>19510</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <index id="49" parent="36" name="auth_group_name_key">
+      <ObjectId>19545</ObjectId>
+      <StateNumber>10098</StateNumber>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="50" parent="36" name="auth_group_name_a6ea08ec_like">
+      <ObjectId>19547</ObjectId>
+      <StateNumber>10098</StateNumber>
+      <ColNames>name</ColNames>
+    </index>
+    <key id="51" parent="36" name="auth_group_pkey">
+      <ObjectId>19511</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>auth_group_pkey</UnderlyingIndexName>
+    </key>
+    <key id="52" parent="36" name="auth_group_name_key">
+      <ObjectId>19546</ObjectId>
+      <StateNumber>10098</StateNumber>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>auth_group_name_key</UnderlyingIndexName>
+    </key>
+    <column id="53" parent="37" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10089</StateNumber>
+      <DefaultExpression>nextval(&apos;auth_group_permissions_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="54" parent="37" name="group_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10089</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="55" parent="37" name="permission_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10089</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="56" parent="37" name="auth_group_permissions_pkey">
+      <ObjectId>19520</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <index id="57" parent="37" name="auth_group_permissions_group_id_permission_id_0cd325b0_uniq">
+      <ObjectId>19531</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <ColNames>group_id
+permission_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="58" parent="37" name="auth_group_permissions_group_id_b120cbf9">
+      <ObjectId>19543</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <ColNames>group_id</ColNames>
+    </index>
+    <index id="59" parent="37" name="auth_group_permissions_permission_id_84c5c92e">
+      <ObjectId>19544</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <ColNames>permission_id</ColNames>
+    </index>
+    <key id="60" parent="37" name="auth_group_permissions_pkey">
+      <ObjectId>19521</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>auth_group_permissions_pkey</UnderlyingIndexName>
+    </key>
+    <key id="61" parent="37" name="auth_group_permissions_group_id_permission_id_0cd325b0_uniq">
+      <ObjectId>19532</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <ColNames>group_id
+permission_id</ColNames>
+      <UnderlyingIndexName>auth_group_permissions_group_id_permission_id_0cd325b0_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="62" parent="37" name="auth_group_permissions_group_id_b120cbf9_fk_auth_group_id">
+      <ObjectId>19533</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>10089</StateNumber>
+      <ColNames>group_id</ColNames>
+      <RefTableId>19506</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>auth_group</RefTableName>
+      <RefKeyName>auth_group_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="63" parent="37" name="auth_group_permissio_permission_id_84c5c92e_fk_auth_perm">
+      <ObjectId>19538</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>10089</StateNumber>
+      <ColNames>permission_id</ColNames>
+      <RefTableId>19498</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>auth_permission</RefTableName>
+      <RefKeyName>auth_permission_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="64" parent="38" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10089</StateNumber>
+      <DefaultExpression>nextval(&apos;auth_permission_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="65" parent="38" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10090</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="66" parent="38" name="content_type_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10089</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="67" parent="38" name="codename">
+      <Position>4</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10089</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="68" parent="38" name="auth_permission_pkey">
+      <ObjectId>19502</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <index id="69" parent="38" name="auth_permission_content_type_id_codename_01ab375a_uniq">
+      <ObjectId>19522</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <ColNames>content_type_id
+codename</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="70" parent="38" name="auth_permission_content_type_id_2f476e4b">
+      <ObjectId>19529</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <ColNames>content_type_id</ColNames>
+    </index>
+    <key id="71" parent="38" name="auth_permission_pkey">
+      <ObjectId>19503</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>auth_permission_pkey</UnderlyingIndexName>
+    </key>
+    <key id="72" parent="38" name="auth_permission_content_type_id_codename_01ab375a_uniq">
+      <ObjectId>19523</ObjectId>
+      <StateNumber>10089</StateNumber>
+      <ColNames>content_type_id
+codename</ColNames>
+      <UnderlyingIndexName>auth_permission_content_type_id_codename_01ab375a_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="73" parent="38" name="auth_permission_content_type_id_2f476e4b_fk_django_co">
+      <ObjectId>19524</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>10089</StateNumber>
+      <ColNames>content_type_id</ColNames>
+      <RefTableId>19488</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>django_content_type</RefTableName>
+      <RefKeyName>django_content_type_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="74" parent="39" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10101</StateNumber>
+      <DefaultExpression>nextval(&apos;django_admin_log_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="75" parent="39" name="action_time">
+      <Position>2</Position>
+      <DataType>timestamp with time zone|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10101</StateNumber>
+      <TypeId>1184</TypeId>
+    </column>
+    <column id="76" parent="39" name="object_id">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>10101</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="77" parent="39" name="object_repr">
+      <Position>4</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10101</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="78" parent="39" name="action_flag">
+      <Position>5</Position>
+      <DataType>smallint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10101</StateNumber>
+      <TypeId>21</TypeId>
+    </column>
+    <column id="79" parent="39" name="change_message">
+      <Position>6</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10101</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="80" parent="39" name="content_type_id">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>10101</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="81" parent="39" name="user_id">
+      <Position>8</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10101</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="82" parent="39" name="django_admin_log_pkey">
+      <ObjectId>19616</ObjectId>
+      <StateNumber>10101</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <index id="83" parent="39" name="django_admin_log_content_type_id_c4bce8eb">
+      <ObjectId>19628</ObjectId>
+      <StateNumber>10101</StateNumber>
+      <ColNames>content_type_id</ColNames>
+    </index>
+    <index id="84" parent="39" name="django_admin_log_user_id_c564eba6">
+      <ObjectId>19629</ObjectId>
+      <StateNumber>10101</StateNumber>
+      <ColNames>user_id</ColNames>
+    </index>
+    <key id="85" parent="39" name="django_admin_log_pkey">
+      <ObjectId>19617</ObjectId>
+      <StateNumber>10101</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>django_admin_log_pkey</UnderlyingIndexName>
+    </key>
+    <foreign-key id="86" parent="39" name="django_admin_log_content_type_id_c4bce8eb_fk_django_co">
+      <ObjectId>19618</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>10101</StateNumber>
+      <ColNames>content_type_id</ColNames>
+      <RefTableId>19488</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>django_content_type</RefTableName>
+      <RefKeyName>django_content_type_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="87" parent="39" name="django_admin_log_user_id_c564eba6_fk_searcher_myuser_id">
+      <ObjectId>19635</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>10105</StateNumber>
+      <ColNames>user_id</ColNames>
+      <RefTableId>19550</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>searcher_myuser</RefTableName>
+      <RefKeyName>searcher_myuser_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <check id="88" parent="39" name="django_admin_log_action_flag_check">
+      <ObjectId>19612</ObjectId>
+      <StateNumber>10101</StateNumber>
+      <ColNames>action_flag</ColNames>
+      <Predicate>action_flag &gt;= 0</Predicate>
+    </check>
+    <column id="89" parent="40" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10087</StateNumber>
+      <DefaultExpression>nextval(&apos;django_content_type_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="90" parent="40" name="app_label">
+      <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10087</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="91" parent="40" name="model">
+      <Position>4</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10087</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="92" parent="40" name="django_content_type_pkey">
+      <ObjectId>19492</ObjectId>
+      <StateNumber>10087</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <index id="93" parent="40" name="django_content_type_app_label_model_76bd3d3b_uniq">
+      <ObjectId>19494</ObjectId>
+      <StateNumber>10087</StateNumber>
+      <ColNames>app_label
+model</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="94" parent="40" name="django_content_type_pkey">
+      <ObjectId>19493</ObjectId>
+      <StateNumber>10087</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>django_content_type_pkey</UnderlyingIndexName>
+    </key>
+    <key id="95" parent="40" name="django_content_type_app_label_model_76bd3d3b_uniq">
+      <ObjectId>19495</ObjectId>
+      <StateNumber>10087</StateNumber>
+      <ColNames>app_label
+model</ColNames>
+      <UnderlyingIndexName>django_content_type_app_label_model_76bd3d3b_uniq</UnderlyingIndexName>
+    </key>
+    <column id="96" parent="41" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10086</StateNumber>
+      <DefaultExpression>nextval(&apos;django_migrations_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="97" parent="41" name="app">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10086</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="98" parent="41" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10086</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="99" parent="41" name="applied">
+      <Position>4</Position>
+      <DataType>timestamp with time zone|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10086</StateNumber>
+      <TypeId>1184</TypeId>
+    </column>
+    <index id="100" parent="41" name="django_migrations_pkey">
+      <ObjectId>19484</ObjectId>
+      <StateNumber>10086</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="101" parent="41" name="django_migrations_pkey">
+      <ObjectId>19485</ObjectId>
+      <StateNumber>10086</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>django_migrations_pkey</UnderlyingIndexName>
+    </key>
+    <column id="102" parent="42" name="session_key">
+      <Position>1</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10108</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="103" parent="42" name="session_data">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10108</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="104" parent="42" name="expire_date">
+      <Position>3</Position>
+      <DataType>timestamp with time zone|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10108</StateNumber>
+      <TypeId>1184</TypeId>
+    </column>
+    <index id="105" parent="42" name="django_session_pkey">
+      <ObjectId>19646</ObjectId>
+      <StateNumber>10108</StateNumber>
+      <ColNames>session_key</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <index id="106" parent="42" name="django_session_session_key_c0390e0f_like">
+      <ObjectId>19648</ObjectId>
+      <StateNumber>10108</StateNumber>
+      <ColNames>session_key</ColNames>
+    </index>
+    <index id="107" parent="42" name="django_session_expire_date_a5c62663">
+      <ObjectId>19649</ObjectId>
+      <StateNumber>10108</StateNumber>
+      <ColNames>expire_date</ColNames>
+    </index>
+    <key id="108" parent="42" name="django_session_pkey">
+      <ObjectId>19647</ObjectId>
+      <StateNumber>10108</StateNumber>
+      <ColNames>session_key</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>django_session_pkey</UnderlyingIndexName>
+    </key>
+    <column id="109" parent="43" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10100</StateNumber>
+      <DefaultExpression>nextval(&apos;searcher_myuser_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="110" parent="43" name="password">
+      <Position>2</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10100</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="111" parent="43" name="last_login">
+      <Position>3</Position>
+      <DataType>timestamp with time zone|0s</DataType>
+      <StateNumber>10100</StateNumber>
+      <TypeId>1184</TypeId>
+    </column>
+    <column id="112" parent="43" name="is_superuser">
+      <Position>4</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10100</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="113" parent="43" name="username">
+      <Position>5</Position>
+      <DataType>varchar(254)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10120</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="114" parent="43" name="telegram_id">
+      <Position>11</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>10106</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="115" parent="43" name="searcher_myuser_pkey">
+      <ObjectId>19557</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <index id="116" parent="43" name="searcher_myuser_email_key">
+      <ObjectId>19559</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="117" parent="43" name="searcher_myuser_email_d95e3028_like">
+      <ObjectId>19577</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>username</ColNames>
+    </index>
+    <key id="118" parent="43" name="searcher_myuser_pkey">
+      <ObjectId>19558</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>searcher_myuser_pkey</UnderlyingIndexName>
+    </key>
+    <key id="119" parent="43" name="searcher_myuser_email_key">
+      <ObjectId>19560</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>searcher_myuser_email_key</UnderlyingIndexName>
+    </key>
+    <column id="120" parent="44" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10100</StateNumber>
+      <DefaultExpression>nextval(&apos;searcher_myuser_groups_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="121" parent="44" name="myuser_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10100</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="122" parent="44" name="group_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10100</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="123" parent="44" name="searcher_myuser_groups_pkey">
+      <ObjectId>19567</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <index id="124" parent="44" name="searcher_myuser_groups_myuser_id_group_id_ae817ca1_uniq">
+      <ObjectId>19578</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>myuser_id
+group_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="125" parent="44" name="searcher_myuser_groups_myuser_id_092e4a77">
+      <ObjectId>19590</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>myuser_id</ColNames>
+    </index>
+    <index id="126" parent="44" name="searcher_myuser_groups_group_id_9e515a4c">
+      <ObjectId>19591</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>group_id</ColNames>
+    </index>
+    <key id="127" parent="44" name="searcher_myuser_groups_pkey">
+      <ObjectId>19568</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>searcher_myuser_groups_pkey</UnderlyingIndexName>
+    </key>
+    <key id="128" parent="44" name="searcher_myuser_groups_myuser_id_group_id_ae817ca1_uniq">
+      <ObjectId>19579</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>myuser_id
+group_id</ColNames>
+      <UnderlyingIndexName>searcher_myuser_groups_myuser_id_group_id_ae817ca1_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="129" parent="44" name="searcher_myuser_groups_myuser_id_092e4a77_fk_searcher_myuser_id">
+      <ObjectId>19580</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>10100</StateNumber>
+      <ColNames>myuser_id</ColNames>
+      <RefTableId>19550</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>searcher_myuser</RefTableName>
+      <RefKeyName>searcher_myuser_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="130" parent="44" name="searcher_myuser_groups_group_id_9e515a4c_fk_auth_group_id">
+      <ObjectId>19585</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>10100</StateNumber>
+      <ColNames>group_id</ColNames>
+      <RefTableId>19506</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>auth_group</RefTableName>
+      <RefKeyName>auth_group_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="131" parent="45" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10100</StateNumber>
+      <DefaultExpression>nextval(&apos;searcher_myuser_user_permissions_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="132" parent="45" name="myuser_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10100</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="133" parent="45" name="permission_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10100</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="134" parent="45" name="searcher_myuser_user_permissions_pkey">
+      <ObjectId>19575</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <index id="135" parent="45" name="searcher_myuser_user_per_myuser_id_permission_id_950a5fd7_uniq">
+      <ObjectId>19592</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>myuser_id
+permission_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="136" parent="45" name="searcher_myuser_user_permissions_myuser_id_a0b594e7">
+      <ObjectId>19604</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>myuser_id</ColNames>
+    </index>
+    <index id="137" parent="45" name="searcher_myuser_user_permissions_permission_id_345e341d">
+      <ObjectId>19605</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>permission_id</ColNames>
+    </index>
+    <key id="138" parent="45" name="searcher_myuser_user_permissions_pkey">
+      <ObjectId>19576</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>searcher_myuser_user_permissions_pkey</UnderlyingIndexName>
+    </key>
+    <key id="139" parent="45" name="searcher_myuser_user_per_myuser_id_permission_id_950a5fd7_uniq">
+      <ObjectId>19593</ObjectId>
+      <StateNumber>10100</StateNumber>
+      <ColNames>myuser_id
+permission_id</ColNames>
+      <UnderlyingIndexName>searcher_myuser_user_per_myuser_id_permission_id_950a5fd7_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="140" parent="45" name="searcher_myuser_user_myuser_id_a0b594e7_fk_searcher_">
+      <ObjectId>19594</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>10100</StateNumber>
+      <ColNames>myuser_id</ColNames>
+      <RefTableId>19550</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>searcher_myuser</RefTableName>
+      <RefKeyName>searcher_myuser_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="141" parent="45" name="searcher_myuser_user_permission_id_345e341d_fk_auth_perm">
+      <ObjectId>19599</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>10100</StateNumber>
+      <ColNames>permission_id</ColNames>
+      <RefTableId>19498</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>auth_permission</RefTableName>
+      <RefKeyName>auth_permission_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
