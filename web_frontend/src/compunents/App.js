@@ -5,6 +5,7 @@ import MainPage from "./MainPage";
 import RegistrationPanel from "./RegistrationPanel";
 import LoginPanel from "./LoginPanel";
 import SearchPanel from "./SearchPanel";
+import Test from "./Test"
 
 class App extends Component {
 
@@ -18,7 +19,8 @@ class App extends Component {
                     <Route exact path='/' component={MainPage}/>
                     <Route exact path='/search' component={SearchPanel}/>
                     <Route exact path='/registration' component={RegistrationPanel}/>
-                    <Route exact path='/login' component={LoginPanel}/>
+                    <Route exact path='/authentication' component={LoginPanel}/>
+                    <Route exact path='/test' component={Test}/>
 
                 </div>
             </BrowserRouter>

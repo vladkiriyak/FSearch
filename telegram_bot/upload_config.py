@@ -7,4 +7,4 @@ def get_config(path_to_config: str) -> dict:
     return config
 
 
-config: dict = get_config("/home/vlad/FSearch/TelegramBot/config.json")
+config: dict = get_config("//config.json")

@@ -15,7 +15,7 @@ class SearchPanel extends Component {
         super(props);
 
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:5000/getContent', false);
+        xhr.open('GET', 'http://localhost:8000/getContent', false);
         xhr.send();
         this.state.articles = JSON.parse(xhr.responseText)['articles'];
         this.search = this.search.bind(this);
@@ -44,7 +44,7 @@ class SearchPanel extends Component {
     search = function() {
 
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:5000/getContenttt', false);
+        xhr.open('GET', 'http://localhost:8000/getContenttt', false);
         xhr.send();
         let articles = JSON.parse(xhr.responseText)['articles'];
 

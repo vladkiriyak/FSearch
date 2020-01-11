@@ -94,6 +94,7 @@ async def processing_text_message(request: dict):
 
 
 async def processing_document_message(request: dict):
+    print(request)
     file_content = await get_file_content(
         request['message']['document']['file_id'],
         request['message']['from']['id']
