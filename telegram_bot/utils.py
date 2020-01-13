@@ -11,7 +11,6 @@ from aiohttp.web_request import Request
 import requests
 
 
-
 def set_webhook(app):
     requests.get(
         f"https://api.telegram.org/bot{app['config']['token']}/setWebhook?url={app['config']['tunneling_url']}")
@@ -79,12 +78,14 @@ async def processing_text_message(request: Request, json_request: dict):
 
 
 async def processing_document_message(request: Request, json_request: dict):
+    url = f"http://0.0.0.0:8001/indexing" \
+          f"?user_id={request['message']['from']['id']}&" \
+          f"file_id={request['message']['document']['file_id']}&" \
+          f"file_name={request['message']['document']['file_name']}"
 
-    url = f"http://0.0.0.0:8001/indexing?user_id=&file_id=&file_name="
     async with aiohttp.ClientSession() as session:
-        async with session.get(url) as response:
-            pass
-
+        async with session.post(url) as response:
+            print(await response.json())
 
     await send_telegram_message(
         request, json_request['message']['from']['id'],
@@ -94,8 +95,6 @@ async def processing_document_message(request: Request, json_request: dict):
 
 async def send_telegram_message(app, user_id: int, message: str):
     await requests.get(f"{app['config']['URL']}/sendMessage?chat_id={user_id}&text={message}")
-
-
 
 
 def get_config(path_to_config: str) -> dict:
