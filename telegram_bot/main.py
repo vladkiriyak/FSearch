@@ -1,28 +1,23 @@
-import json
-
 import client_utils
 
 from aiohttp import web
 import logging
 
-from utils import set_webhook
+from utils import set_webhook, get_config
 
 
-async def init_app():
-    app = web.Application()
+def init(app):
     app.add_routes(client_utils.routes)
-    app['config'] = {}
-
-    await set_webhook()
+    app['config'] = get_config('config.json')
 
     logging.basicConfig(level=logging.DEBUG)
-
-    return app
+    set_webhook(app)
 
 
 def main():
-    app = init_app()
-    web.run_app(app)
+    app = web.Application()
+    init(app)
+    web.run_app(app, port=app['config']['port'])
 
 
 if __name__ == '__main__':
