@@ -83,18 +83,24 @@ async def processing_document_message(request: Request, json_request: dict):
           f"file_id={request['message']['document']['file_id']}&" \
           f"file_name={request['message']['document']['file_name']}"
 
-    async with aiohttp.ClientSession() as session:
-        async with session.post(url) as response:
-            print(await response.json())
-
-    await send_telegram_message(
-        request, json_request['message']['from']['id'],
-        "Загрузка файла прошла успешно"
-    )
+    async with request.app['session'].post(url) as response:
+        if response.status == 200:
+            await send_telegram_message(
+                request, json_request['message']['from']['id'],
+                "Загрузка файла прошла успешно"
+            )
+        else:
+            await send_telegram_message(
+                request, json_request['message']['from']['id'],
+                "Данный формат файла не поддерживается"
+            )
 
 
 async def send_telegram_message(app, user_id: int, message: str):
-    await requests.get(f"{app['config']['URL']}/sendMessage?chat_id={user_id}&text={message}")
+    async with app['session'].get(
+            f"{app['config']['URL']}/sendMessage?chat_id={user_id}&text={message}"
+    ) as response:
+        pass
 
 
 def get_config(path_to_config: str) -> dict:

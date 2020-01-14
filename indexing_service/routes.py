@@ -25,26 +25,25 @@ async def indexing(request: Request):
 
     url = f"{request.app['config']['URL']}/getfile?file_id={file_id}"
 
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as response:
-            file_path = (await response.json())['result']['file_path']
-        url = f"https://api.telegram.org/file/bot{request.app['config']['token']}/{file_path}"
+    async with request.app['session'].get(url) as response:
+        file_path = (await response.json())['result']['file_path']
+    url = f"https://api.telegram.org/file/bot{request.app['config']['token']}/{file_path}"
 
-        async with session.get(url) as response:
-            source_stream = BytesIO(await response.content.read())
-            doc: document.Document = Document(source_stream)
+    async with request.app['session'].get(url) as response:
+        source_stream = BytesIO(await response.content.read())
+        doc: document.Document = Document(source_stream)
 
-        file_content = '\n'.join([paragraph.text for paragraph in doc.paragraphs])
+    file_content = '\n'.join([paragraph.text for paragraph in doc.paragraphs])
 
-        indexing_json = {
-            'user_id': user_id,
-            'file_id': file_id,
-            'file_name': file_name,
-            'file_content': file_content
-        }
+    indexing_json = {
+        'user_id': user_id,
+        'file_id': file_id,
+        'file_name': file_name,
+        'file_content': file_content
+    }
 
-        async with session.post(f'http://localhost:9200/fsearch/doc', json=indexing_json) as response:
-            response: ClientResponse
-            print(await response.json())
+    async with request.app['session'].post(f'http://localhost:9200/fsearch/doc', json=indexing_json) as response:
+        response: ClientResponse
+        print(await response.json())
 
     return web.Response(text='ok')

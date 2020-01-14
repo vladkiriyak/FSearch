@@ -1,3 +1,5 @@
+import aiohttp
+
 import routes
 
 import logging
@@ -6,15 +8,18 @@ from aiohttp import web
 from utils import get_config
 
 
-def init(app):
+async def init(app):
     app.add_routes(routes.routes)
-    app['config'] = get_config('config.json')
     logging.basicConfig(level=logging.DEBUG)
+    app['session'] = aiohttp.ClientSession()
+    yield
+    app['session'].close()
 
 
 def main():
     app = web.Application()
-    init(app)
+    app.cleanup_ctx.append(init)
+    app['config'] = get_config('config.json')
     web.run_app(app, port=app['config']['port'])
 
 
