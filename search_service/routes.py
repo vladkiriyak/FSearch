@@ -3,8 +3,6 @@ from aiohttp.web_request import Request
 from docx import Document, document
 from io import BytesIO
 
-from utils import docx_to_html
-
 routes = web.RouteTableDef()
 
 
@@ -46,6 +44,13 @@ async def search(request: Request):
         async with request.app['session'].get(url) as response:
             source_stream = BytesIO(await response.content.read())
             doc: document.Document = Document(source_stream)
-            html_content = docx_to_html(doc)
 
-    return web.Response(text=html_content)
+        paragraphs = [paragraph.text for paragraph in doc.paragraphs]
+
+    return web.json_response(
+        {
+            "search_words": search_query.split(),
+            "paragraphs": paragraphs
+        }
+
+    )

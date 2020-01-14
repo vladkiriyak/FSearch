@@ -24,6 +24,14 @@ def hello(request):
 
 
 @csrf_exempt
+def search(request):
+    print("Hello")
+    return HttpResponse(content='hello')
+
+
+
+
+@csrf_exempt
 def authentication(request):
     user_info = json.loads(request.body)
 
