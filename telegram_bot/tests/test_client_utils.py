@@ -1,6 +1,6 @@
 from aiohttp import web
 
-from client_utils import hello
+from src.client_utils import hello
 
 
 async def test_hello(aiohttp_client, loop, my_fixture):

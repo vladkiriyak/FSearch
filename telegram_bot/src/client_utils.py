@@ -2,7 +2,7 @@ from aiohttp import web
 from aiohttp.web_request import Request
 from aiohttp_requests import requests
 
-from messages import get_message_type
+from src.messages import get_message_type
 from src.utils import send_telegram_message, processing_text_message, processing_document_message
 
 from log import loging

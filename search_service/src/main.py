@@ -20,7 +20,6 @@ async def init(app):
 def main():
     app = web.Application()
     app.cleanup_ctx.append(init)
-    app['config'] = get_config('../../telegram_bot/config.json')
     web.run_app(app, port=app['config']['port'])
 
 

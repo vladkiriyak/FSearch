@@ -1,17 +1,18 @@
 import aiohttp
 
-import client_utils
+from src import client_utils
 
 from aiohttp import web
 import logging
 
-from src.utils import set_webhook, get_config
-
+from .utils import set_webhook, get_config
+from .config import conf
 
 async def init(app):
     app.add_routes(client_utils.routes)
     logging.basicConfig(level=logging.DEBUG)
     app['session'] = aiohttp.ClientSession()
+    app['config'] = conf
     yield
     app['session'].close()
 
@@ -19,7 +20,6 @@ async def init(app):
 def main():
     app = web.Application()
     app.cleanup_ctx.append(init)
-    app['config'] = get_config('config.json')
     set_webhook(app)
 
     web.run_app(app, port=app['config']['port'])
