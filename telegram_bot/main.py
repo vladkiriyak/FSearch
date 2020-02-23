@@ -5,7 +5,7 @@ import client_utils
 from aiohttp import web
 import logging
 
-from utils import set_webhook, get_config
+from src.utils import set_webhook, get_config
 
 
 async def init(app):
