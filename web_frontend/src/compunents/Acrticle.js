@@ -1,52 +1,64 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {Link, Route} from "react-router-dom";
+import Document from "./Document";
 
 
-class Article extends Component {
+let Article = ({article}) => {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-
-            isOpen: true
-        };
-    }
+    let openDoc = () => {
+        store.dispatch({type: 'DOC', uuid: uuid})
 
 
-    render() {
+    };
 
-        const {article} = this.props;
-
-
-        const body = this.state.isOpen && (
-            <section>
-                <div className="card-header">
-                    {article.title}
-                </div>
-                <div className="card-body">
-                    {article.body}
-                </div>
-            </section>
-        );
-        return (
+    return (
+        <a href={'/doc/' + article.uuid} onClick={openDoc}>
             <div className="card">
-                {/*<button className="btn btn-primary" onClick={this.handleClick}>click</button>*/}
-                {body}
+                <section>
+                    <div className="card-header">
+                        {article.title}
+                    </div>
+                    <div className="card-body">
+                        {article.body}
+                    </div>
+                </section>
             </div>
 
+        </a>
 
-        )
-    }
 
-    handleClick = () => {
+    )
 
-        this.setState({
-            isOpen: !this.state.isOpen
 
-        });
-
-        console.log("Hi");
-    }
-}
+};
 
 export default Article
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

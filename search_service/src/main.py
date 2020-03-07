@@ -5,8 +5,7 @@ from src import routes
 from aiohttp import web
 import logging
 
-from src.utils import get_config
-from .config import conf
+from config import conf
 
 async def init(app):
     app.add_routes(routes.routes)

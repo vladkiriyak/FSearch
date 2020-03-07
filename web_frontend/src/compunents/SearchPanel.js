@@ -1,64 +1,37 @@
-import React, {Component} from 'react';
+import React from 'react';
 import "bootstrap/dist/css/bootstrap.css"
-import articles from "../content"
 
 import ArticleList from "./ArticleList";
+import {Route} from "react-router-dom";
+import Document from "./Document";
 
-class SearchPanel extends Component {
+let SearchPanel = ({store}) => {
 
-    state = {
-        articles: []
-    };
+    let searchElementRef = React.createRef();
 
-
-    constructor(props){
-        super(props);
-
-        let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:8000/getContent', false);
-        xhr.send();
-        this.state.articles = JSON.parse(xhr.responseText)['articles'];
-        this.search = this.search.bind(this);
-    }
-
-    render() {
-
-        return (
-            <div className="container">
-                <br/>
-                <h2 className="d-inline">FSearch</h2>
-                <button onClick={this.search} className="d-inline  btn btn-success float-right">click</button>
-                <input id='searchInput' className="input-group-text float-right"/>
-                <br/>
-                <br/>
-                <br/>
-                <ArticleList articles={this.state.articles}/>
-            </div>
-
-        )
-    }
-
-
-
-
-    search = function() {
-
-        let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:8000/getContenttt', false);
-        xhr.send();
-        let articles = JSON.parse(xhr.responseText)['articles'];
-
-        this.setState({articles: articles});
-
-        let searchInput = document.getElementById('searchInput');
-
-        console.log(searchInput.value)
-
+    const search = () => {
+        let query = searchElementRef.current.value;
+        store.dispatch({type: 'SEARCH', query: query})
 
     };
 
 
 
-}
+    return (
+        <div className="container">
+            <br/>
+            <h2 className="d-inline">FSearch</h2>
+            <button onClick={search} className="d-inline  btn btn-success float-right">click</button>
+            <input ref={searchElementRef} className="input-group-text float-right"/>
+            <br/>
+            <br/>
+            <br/>
+            <ArticleList articles={store.getState().search.articles}/>
+        </div>
+
+    )
+
+
+};
 
 export default SearchPanel

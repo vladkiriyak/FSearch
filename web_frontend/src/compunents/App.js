@@ -5,27 +5,24 @@ import MainPage from "./MainPage";
 import RegistrationPanel from "./RegistrationPanel";
 import LoginPanel from "./LoginPanel";
 import SearchPanel from "./SearchPanel";
-import Test from "./Test"
+import Document from "./Document";
 
-class App extends Component {
-
-
-    render() {
+let App = ({store}) => {
 
 
-        return (
-            <BrowserRouter>
-                <div>
-                    <Route exact path='/' component={MainPage}/>
-                    <Route exact path='/search' component={SearchPanel}/>
-                    <Route exact path='/registration' component={RegistrationPanel}/>
-                    <Route exact path='/authentication' component={LoginPanel}/>
-                    <Route exact path='/test' component={Test}/>
 
-                </div>
-            </BrowserRouter>
-        )
-    }
-}
+    return (
+        <BrowserRouter>
+            <div>
+                <Route exact path='/' component={MainPage}/>
+                <Route exact path='/search' render={() => <SearchPanel store={store}/>}/>
+                <Route exact path='/doc' render={() => <Document store={store}/>}/>
+                <Route exact path='/registration' render={() => <RegistrationPanel store={store}/>}/>
+                <Route exact path='/authentication' render={() => <LoginPanel store={store}/>}/>
+
+            </div>
+        </BrowserRouter>
+    )
+};
 
 export default App

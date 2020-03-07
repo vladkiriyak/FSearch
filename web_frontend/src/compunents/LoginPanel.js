@@ -2,28 +2,10 @@ import React, {Component} from 'react';
 import "bootstrap/dist/css/bootstrap.css"
 
 
-class LoginPanel extends Component {
-
-    render() {
-
-        return (
-            <div className="card">
-                <h2 className="card-header">FSearch</h2>
-                <div className="card-body">
-                    User name <input id={'username'} className="input-group-text"/>
-                    <br/>
-                    Password <input id={'password'} type="password" className="input-group-text"/>
-                    <br/>
-                    <button onClick={this.authentication} className="btn btn-success">log in</button>
-                </div>
-
-            </div>
-
-        )
-    }
+let LoginPanel = (props) => {
 
 
-    authentication = function () {
+    const authentication = () => {
 
         let username = document.getElementById('username').value;
         let password = document.getElementById('password').value;
@@ -47,11 +29,28 @@ class LoginPanel extends Component {
             }
 
 
-
         });
 
 
-    }
-}
+    };
+
+
+    return (
+        <div className="card">
+            <h2 className="card-header">FSearch</h2>
+            <div className="card-body">
+                User name <input id={'username'} className="input-group-text"/>
+                <br/>
+                Password <input id={'password'} type="password" className="input-group-text"/>
+                <br/>
+                <button onClick={authentication} className="btn btn-success">log in</button>
+            </div>
+
+        </div>
+
+    )
+
+
+};
 
 export default LoginPanel

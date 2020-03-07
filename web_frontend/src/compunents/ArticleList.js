@@ -3,45 +3,20 @@ import React, {Component} from "react"
 import Article from "./Acrticle";
 
 
-class ArticleList extends Component {
-    state = {
-        articles: []
-    };
+let ArticleList = ({articles}) => {
 
-    constructor(props) {
-        super(props);
-        let {articles} = props;
-        this.state.articles = articles;
+    const articleElements = articles.map(
+        article => <Article article={article}/>
+    );
 
+    return (
 
-    }
+        <div>
+            {articleElements}
+        </div>
+    )
 
-    componentWillReceiveProps(nextProps, nextContext) {
-        let {articles} = nextProps;
-        this.setState({articles: articles});
-    }
-
-
-    render() {
-
-        const articleElements = this.state.articles.map(
-            article => <Article article={article}/>
-        );
-
-
-        return (
-
-            <div>
-                {articleElements}
-            </div>
-
-        )
-
-
-    }
-
-
-}
+};
 
 
 export default ArticleList
