@@ -3,10 +3,11 @@ import React, {Component} from "react"
 import Article from "./Acrticle";
 
 
-let ArticleList = ({articles}) => {
+let ArticleList = ({store}) => {
 
-    const articleElements = articles.map(
-        article => <Article article={article}/>
+
+    const articleElements = store.getState().search.articles.map(
+        article => <Article store={store} article={article}/>
     );
 
     return (

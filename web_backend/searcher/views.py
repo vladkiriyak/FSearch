@@ -1,5 +1,6 @@
 import json
 
+import requests
 from django.core import signing
 from django.http import JsonResponse, HttpResponse
 
@@ -24,52 +25,18 @@ def hello(request):
 
 
 @csrf_exempt
+def get_doc(request):
+    file_id = request.GET['file_id']
+    r = requests.get(f'http://localhost:8002/doc?file_id={file_id}').json()
+    return JsonResponse(r)
+
+
+@csrf_exempt
 def search(request):
-    query = request.GET['q']
-    print(query)
-
-    return JsonResponse(
-        {
-            'articles': [
-                {
-                    'title': query,
-                    'body': " Скажи, а чайки тоже плачут,\n" +
-                            "                Когда их море предает? -\n" +
-                            "                Спросила девочка у мальчика,\n" +
-                            "                Когда весной кололся лед.\n" +
-                            "                \n" +
-                            "                Деревья на ветру качались,\n" +
-                            "                И он ответил на вопрос:\n" +
-                            "                - Чайки разбиваются о скалы,\n" +
-                            "                Когда их море предает.\n" +
-                            "                \n" +
-                            "                Летели годы, словно ветер,\n" +
-                            "                Летели, оставляя след.\n" +
-                            "                И вот, они уже не дети,\n" +
-                            "                Им стало восемнадцать лет."
-
-                },
-                {
-                    'title': 'AAAAAAAAAAAAAAAAA',
-                    'body': " Скажи, а чайки тоже плачут,\n" +
-                            "                Когда их море предает? -\n" +
-                            "                Спросила девочка у мальчика,\n" +
-                            "                Когда весной кололся лед.\n" +
-                            "                \n" +
-                            "                Деревья на ветру качались,\n" +
-                            "                И он ответил на вопрос:\n" +
-                            "                - Чайки разбиваются о скалы,\n" +
-                            "                Когда их море предает.\n" +
-                            "                \n" +
-                            "                Летели годы, словно ветер,\n" +
-                            "                Летели, оставляя след.\n" +
-                            "                И вот, они уже не дети,\n" +
-                            "                Им стало восемнадцать лет."
-
-                }
-            ]
-        }
-    )
+    search_query = request.GET['q']
+    print(search_query)
+    r = requests.get(f'http://localhost:8002/search?search_query={search_query}&user_id=1').json()
+    return JsonResponse(r)
 
 
 @csrf_exempt

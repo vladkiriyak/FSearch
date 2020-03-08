@@ -6,15 +6,14 @@ import {Route} from "react-router-dom";
 import Document from "./Document";
 
 let SearchPanel = ({store}) => {
-
     let searchElementRef = React.createRef();
+
 
     const search = () => {
         let query = searchElementRef.current.value;
-        store.dispatch({type: 'SEARCH', query: query})
+        store.dispatch({type: 'SEARCH', query: query});
 
     };
-
 
 
     return (
@@ -26,7 +25,7 @@ let SearchPanel = ({store}) => {
             <br/>
             <br/>
             <br/>
-            <ArticleList articles={store.getState().search.articles}/>
+            <ArticleList store={store}/>
         </div>
 
     )

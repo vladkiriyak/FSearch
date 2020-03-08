@@ -1,14 +1,13 @@
 import React from "react";
 
-let Document = (props) => {
-
+let Document = ({store}) => {
 
     return (
 
 
         <div>
-
-            <h1>HELLO</h1>
+            <h1>{store.getState().doc.doc.file_name}</h1>
+            <h2>{store.getState().doc.doc.file_content}</h2>
 
         </div>
 

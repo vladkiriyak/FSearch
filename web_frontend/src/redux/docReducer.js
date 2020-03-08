@@ -4,8 +4,8 @@ let initialState = {
 
     doc:
         {
-            title: "My Title",
-            body: " Скажи, а чайки тоже плачут,\n" +
+            file_name: "My Title",
+            file_content: " Скажи, а чайки тоже плачут,\n" +
                 "                Когда их море предает? -\n" +
                 "                Спросила девочка у мальчика,\n" +
                 "                Когда весной кололся лед.\n" +
@@ -26,7 +26,7 @@ let initialState = {
 const docReducer = (state = initialState, action) => {
     if (action.type === DOC) {
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:8000/searcher/doc/' + action.uuid, false);
+        xhr.open('GET', 'http://localhost:8000/searcher/doc?file_id=' + action.file_id, false);
         xhr.send();
         state.doc = JSON.parse(xhr.responseText)['doc'];
     }
