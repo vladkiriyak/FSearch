@@ -9,6 +9,8 @@ let SearchPanel = ({store}) => {
     let searchElementRef = React.createRef();
 
 
+
+
     const search = () => {
         let query = searchElementRef.current.value;
         store.dispatch({type: 'SEARCH', query: query});

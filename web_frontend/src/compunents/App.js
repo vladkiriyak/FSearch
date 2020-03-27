@@ -16,7 +16,7 @@ let App = ({store}) => {
             <div>
                 <Route exact path='/' component={MainPage}/>
                 <Route exact path='/search' render={() => <SearchPanel store={store}/>}/>
-                <Route exact path='/doc' render={() => <Document store={store}/>}/>
+                <Route exact path='/doc/:number' render={() => <Document store={store}/>}/>
                 <Route exact path='/registration' render={() => <RegistrationPanel store={store}/>}/>
                 <Route exact path='/authentication' render={() => <LoginPanel store={store}/>}/>
 

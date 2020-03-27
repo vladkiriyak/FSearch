@@ -3,14 +3,14 @@ from aiohttp.web_request import Request
 import requests
 
 
-def set_webhook(app):
+def set_webhook(conf):
     requests.get(
-        f"https://api.telegram.org/bot{app['config']['token']}/setWebhook?url={app['config']['tunneling_url']}")
+        f"https://api.telegram.org/bot{conf['token']}/setWebhook?url={conf['tunneling_url']}")
 
 
 async def processing_text_message(request: Request, json_request: dict):
-    user_id = request['message']['from']['id']
-    text = request['message']['text']
+    user_id = json_request['message']['from']['id']
+    text = json_request['message']['text']
 
     if text[:8] != '/search ':
         await send_telegram_message(
@@ -20,15 +20,15 @@ async def processing_text_message(request: Request, json_request: dict):
     else:
         await send_telegram_message(
             request, json_request['message']['from']['id'],
-            "http://localhost:8080/search/user_id&search_query"
+            "http://localhost:8080/search/doc?file_id="
         )
 
 
 async def processing_document_message(request: Request, json_request: dict):
     url = f"http://0.0.0.0:8001/indexing" \
-          f"?user_id={request['message']['from']['id']}&" \
-          f"file_id={request['message']['document']['file_id']}&" \
-          f"file_name={request['message']['document']['file_name']}"
+          f"?user_id={json_request['message']['from']['id']}&" \
+          f"file_id={json_request['message']['document']['file_id']}&" \
+          f"file_name={json_request['message']['document']['file_name']}"
 
     async with request.app['session'].post(url) as response:
         if response.status == 200:
@@ -43,8 +43,8 @@ async def processing_document_message(request: Request, json_request: dict):
             )
 
 
-async def send_telegram_message(app, user_id: int, message: str):
-    async with app['session'].get(
-            f"{app['config']['URL']}/sendMessage?chat_id={user_id}&text={message}"
+async def send_telegram_message(request, user_id: int, message: str):
+    async with request.app['session'].get(
+            f"{request.app['config']['URL']}/sendMessage?chat_id={user_id}&text={message}"
     ) as response:
         pass

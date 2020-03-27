@@ -15,7 +15,7 @@ async def init(app):
     app['config'] = conf
     app['session'] = aiohttp.ClientSession()
     yield
-    app['session'].close()
+    await app['session'].close()
 
 
 def main():

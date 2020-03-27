@@ -4,6 +4,17 @@ from aiohttp.web_request import Request
 async def es_search(request: Request):
     user_id: str = request.rel_url.query['user_id']
     search_query: str = request.rel_url.query['search_query']
+    moc_json_search_query = {
+        "query": {
+            "bool": {
+                "must": [
+                    {"match": {"file_content": search_query}},
+                    # {"term": {"user_id": user_id}}
+                ]
+            }
+        }
+    }
+
     json_search_query = {
         "query": {
             "bool": {
@@ -17,7 +28,7 @@ async def es_search(request: Request):
 
     async with request.app['session'].get(
             'http://localhost:9200/_search',
-            json=json_search_query
+            json=moc_json_search_query
     ) as response:
         elastic_response = await response.json()
 
@@ -33,7 +44,7 @@ async def get_file(request: Request):
         "query": {
             "bool": {
                 "must": [
-                    {"term": {"file_id": file_id}},
+                    {"match": {"file_id": file_id}},
 
                 ]
             }
@@ -47,6 +58,10 @@ async def get_file(request: Request):
     ) as response:
         elastic_response = await response.json()
 
+        print('!' * 10)
+        print(elastic_response)
+        print('!' * 10)
+
         doc = elastic_response["hits"]["hits"][0]['_source']
 
-    return doc
+        return doc

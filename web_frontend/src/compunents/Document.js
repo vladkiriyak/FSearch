@@ -2,18 +2,26 @@ import React from "react";
 
 let Document = ({store}) => {
 
-    return (
+    let file_id = window.location.href.split('/')[window.location.href.split('/').length - 1];
+    store.dispatch({type: 'DOC', file_id: file_id});
 
 
-        <div>
-            <h1>{store.getState().doc.doc.file_name}</h1>
-            <h2>{store.getState().doc.doc.file_content}</h2>
 
+    return(
+
+        <div className="card">
+            <div className="card-header">
+                {store.getState().doc.doc.file_name}
+            </div>
+            <div className="card-body">
+                <p className="card-text">{store.getState().doc.doc.file_content}.
+                </p>
+                <a className="btn btn-primary">Download</a>
+            </div>
         </div>
 
 
     )
-
 
 };
 

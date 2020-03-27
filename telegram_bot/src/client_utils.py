@@ -2,10 +2,10 @@ from aiohttp import web
 from aiohttp.web_request import Request
 from aiohttp_requests import requests
 
-from src.messages import get_message_type
+from .messages import get_message_type
 from .utils import send_telegram_message, processing_text_message, processing_document_message
 
-from log import loging
+from ..log import loging
 
 routes = web.RouteTableDef()
 
@@ -35,13 +35,13 @@ async def telegram_handler(request: Request):
         await loging.put_log_in_file(f" | {username} | UPLOAD FILE")
 
         try:
-            await processing_document_message(requests, request_json)
+            await processing_document_message(request, request_json)
         except Exception as exception:
 
             print(f"\x1b[0;31;48m{exception}\x1b[0m")
 
             await send_telegram_message(
-                request.app,
+                request,
                 request_json['message']['from']['id'],
                 "Данный формат файла не доступен"
             )

@@ -15,7 +15,7 @@ class SettingsBackend(BaseBackend):
             try:
                 user = MyUser.objects.get(username=username)
             except MyUser.DoesNotExist:
-                print("User dot exist")
+                print("User don't exist")
                 user = None
 
             return user

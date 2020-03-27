@@ -6,10 +6,7 @@ import Document from "./Document";
 let Article = ({article, store}) => {
 
     let openDoc = () => {
-        store.dispatch({type: 'DOC', file_id: article.file_id});
-
-        window.location.replace("/doc");
-
+        window.location.href = "http://localhost:3000/doc/" + article.file_id;
     };
 
     return (

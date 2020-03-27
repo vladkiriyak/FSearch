@@ -40,6 +40,6 @@ async def es_save(request: Request, file_content: str):
         'file_content': file_content
     }
 
-    async with request.app['session'].post(f'http://localhost:9200/fsearch/doc', json=doc_json) as response:
+    async with request.app['session'].post(f'http://localhost:9200/fsearch/_doc', json=doc_json) as response:
         response: ClientResponse
         print(await response.json())

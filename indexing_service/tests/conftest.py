@@ -1,7 +1,7 @@
 import pytest
 from aiohttp import web, ClientSession
 from config import conf
-from indexing_service.src import routes
+from src import routes
 
 pytest_plugins = [
 ]
