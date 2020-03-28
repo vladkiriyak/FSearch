@@ -27,7 +27,6 @@ async def telegram_handler(request: Request):
     if message_type == "text":
 
         await loging.put_log_in_file(f" | {user_id} | {username} | {user_message}")
-
         await processing_text_message(request, request_json)
 
     elif message_type == "document":
