@@ -1,0 +1,12 @@
+<div class="contain jumbotron">
+
+  <div fxFlex fxFlex.gt-sm="20%" class="header">
+    <img src="/assets/images/logo.png" alt="Logo" class="logo">
+    <h3>searching through your files</h3>
+  </div>
+  <mat-toolbar>
+    <a mat-button [routerLink]="['/files']" routerLinkActive="active"><i class="fa fa-file-word-o" aria-hidden="true"></i></a>
+    <a mat-button [routerLink]="['/search']" routerLinkActive="active"><i class="fa fa-search " aria-hidden="true"></i></a>
+    <a (click)="openLoginForm()" mat-button ><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+  </mat-toolbar>
+</div>
