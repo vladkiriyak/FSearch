@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+$background-pale: #D1C4E9;
+$primary-color-dark:   #512DA8;
+
+.highlight {
+    background-color: $background-pale;
+    border: 1px solid $primary-color-dark;
+    z-index: 1; // raising item
+    transform: scale(1.01);
+  }
+
+  .flex-spacer {
+    flex: 1 1 auto;
+  }

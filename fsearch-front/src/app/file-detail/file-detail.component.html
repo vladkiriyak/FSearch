@@ -1,0 +1,63 @@
+<div class="cont">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <h2>{{selectedFile.file_name}}</h2>
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Non voluptatem inventore recusandae vel officia itaque,
+                voluptatum ab possimus, aut excepturi perferendis eligendi
+                dolorum unde nam molestiae ipsa. Excepturi delectus praesentium
+                nihil, est eum ipsum rem libero voluptatem neque fuga debitis
+                perspiciatis. Libero tenetur quaerat, rem rerum velit itaque
+                iure id earum unde quam voluptatum dicta excepturi labore ea.
+                Dolore dolores quas adipisci modi. Iste explicabo nesciunt
+                corporis quisquam velit nemo, possimus eligendi rem, eum
+                quod accusamus dolorum, qui fugiat inventore. Ex facere
+                non laboriosam odio autem, minima minus incidunt eum in
+                dolorem et obcaecati impedit eius temporibus itaque
+                voluptate dolorum distinctio explicabo? Officiis nostrum
+                expedita cumque ut a! Nam quasi, impedit, fuga sed maxime
+                placeat velit ullam aperiam, quibusdam commodi aliquid
+                voluptates. Quod cumque eius officia laborum sunt modi nostrum
+                ipsum labore obcaecati iure excepturi nisi deleniti quos
+                molestiae aperiam maiores, odit vel ea in delectus qui non!
+                Modi, hic voluptatibus repudiandae, sunt ad quidem sapiente
+                quasi quia totam nesciunt earum. Expedita iste suscipit,
+                ipsa quod ullam vel fugit ipsum. Reprehenderit,
+                laudantium ad odit obcaecati cupiditate eum totam! Corrupti voluptatum sed ducimus, commodi delectus itaque
+                nihil consectetur. Ex pariatur eaque molestias vel ad voluptatem commodi non modi repudiandae iste
+                reprehenderit
+                inventore accusamus libero asperiores impedit facere adipisci nam ipsum accusantium placeat, aut sed quas
+                dolorem! Explicabo vero natus consequatur accusantium veritatis quidem ipsam, minus modi officiis
+                consequuntur
+                quisquam accusamus quos reiciendis, voluptatum ipsa? Sequi porro unde inventore corporis quas quod qui
+                quisquam
+                illo iusto consequatur in ea vel, obcaecati, fuga molestiae. Magni tenetur sed itaque dignissimos cumque est
+                fuga officia quasi recusandae, doloribus ex debitis commodi iste enim, impedit mollitia facilis, adipisci
+                assumenda ratione tempore. Iure impedit, dolor architecto hic doloremque sunt dolore. Necessitatibus
+                temporibus
+                aliquam aspernatur dignissimos animi sapiente ducimus minima aperiam iste repudiandae, molestiae sequi nisi
+                rem
+                non eius in omnis veritatis quae autem incidunt sed, itaque ea. Accusantium cumque ut illo tempore
+                voluptate.
+                Veritatis animi adipisci facilis quo. Iure rerum sit, nemo in et enim debitis dolores numquam consequatur
+                doloribus exercitationem corrupti odio eius possimus reiciendis non quasi sequi nobis cumque, eos sint
+                excepturi
+                repellendus. Deserunt, quod ducimus dolore repellendus in, ipsam rem ipsum rerum molestiae odio facilis sint
+                excepturi eos laboriosam. Voluptatum, quibusdam. Magni doloremque quasi voluptate sint neque deleniti, harum
+                odio vel quisquam sequi laboriosam beatae. Alias dolor quis assumenda architecto? Corrupti, tempora tempore
+                quaerat tenetur ullam dolor enim omnis, harum totam, sequi incidunt debitis!</p>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button><span class="fa fa-chevron-left fa-lg" [routerLink]="['/files', prev]"></span></button>
+            <button (click)="goBack()">BACK</button>
+            <button><span class="fa fa-chevron-right fa-lg" [routerLink]="['/files', next]"></span></button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>

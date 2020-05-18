@@ -1,0 +1,50 @@
+$lt-gray: #ddd;
+$background-dark: #512DA8;
+$background-light: #1C1C1C;
+$background-pale: #D1C4E9;
+$background-moredark: #4527A0;
+
+@mixin zero-margin($pad-up-down, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-down $pad-left-right;
+}
+
+.jumbotron {
+    @include zero-margin(30px,30px);
+    color:floralwhite;
+    min-height: 150px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+mat-toolbar {
+    background-color: $background-light;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+i {
+    font-size: 65px;
+    color:  #512DA8;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h3 {
+    font-family: "Monotype Corsiva" Cursive;
+    font-size: 40px;
+    letter-spacing: 7px;
+    color: #BF3F3F;
+}
+

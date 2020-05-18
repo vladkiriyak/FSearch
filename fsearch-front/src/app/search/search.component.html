@@ -1,0 +1,19 @@
+<div class="cont">
+
+    <form action="" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+
+        <div class="search-box">
+            <input type="text" class="search-txt" name="" placeholder="Type to search" formControlName="searchText">
+            <a mat-button class="search-btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+
+        </div>
+
+
+        <div class="error-box" *ngIf="formErrors.searchText">
+            {{formErrors.searchText}}
+        </div>
+
+    </form>
+
+</div>

@@ -1,0 +1,30 @@
+
+<div fxLayout="column" class="cont" fxLayoutGap="10px">
+
+    <div fxFlex>
+      <div>
+        <h3>Searched files</h3>
+        <hr>
+      </div>
+    </div>
+  
+    <div fxFlex *ngIf="files">
+      <mat-grid-list cols="3" rowHeight="200px">
+        <mat-grid-tile *ngFor="let file of files" [routerLink]="['/files', file.file_id]" routerLinkActive="router-link-active" appHighlight>
+          <img height="200px" src="/assets/images/file.png" alt={{file.file_name}}>
+          <mat-grid-tile-footer>
+            <h1>{{file.file_name}}</h1>
+          </mat-grid-tile-footer>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  
+    <div [hidden]="files" class="spinner" FxFlex fxLayout="column" fxLayoutAlign="center center">
+      <mat-spinner></mat-spinner> <h4>Зачекайте, Влад Киріяк чаклує...</h4>
+    </div>
+  
+    <!-- <div fxFlex *ngIf="errorMess">
+      <h2>Error</h2>
+      <h4>{{ errorMess }}</h4>
+    </div> -->
+  </div>
