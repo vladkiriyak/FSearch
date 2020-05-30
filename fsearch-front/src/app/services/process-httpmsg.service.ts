@@ -9,6 +9,10 @@ export class ProcessHttpmsgService {
 
   constructor() { }
 
+  /**
+   * Handling errors method
+   * @param error occurred error
+   */
   public handleError(error: HttpErrorResponse | any) {
     let errMsg: string
 
