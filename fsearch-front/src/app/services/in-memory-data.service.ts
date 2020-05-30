@@ -5,7 +5,14 @@ import { ResponseFile } from '../shared/responseFile'
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * Class for DB imitation
+ */
 export class InMemoryDataService implements InMemoryDbService {
+  /**
+   * method for creating db imitation according to the given data
+   */
   createDb() {
     const files = [
       {

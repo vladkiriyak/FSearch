@@ -38,6 +38,9 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * creating form for word searching
+   */
   createForm(): void {
     this.searchForm = this.fb.group({
       searchText: ['', [Validators.required, Validators.minLength(4)]]
@@ -46,6 +49,11 @@ export class SearchComponent implements OnInit {
     this.searchForm.valueChanges
       .subscribe(data => this.onValueChanged(data))
   }
+
+  /**
+   * Filling formsErrors according to the errors while value occured changing
+   * @param data form data
+   */
 
   onValueChanged(data?: any) {
     if (!this.searchForm) { return; }
@@ -66,6 +74,11 @@ export class SearchComponent implements OnInit {
       }
     }
   }
+
+  /**
+   * Submit method
+   * submits form and resets it
+   */
 
   onSubmit() {
     const searchText = this.searchForm.value

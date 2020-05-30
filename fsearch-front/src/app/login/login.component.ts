@@ -35,6 +35,10 @@ export class LoginComponent implements OnInit {
     this.createForm()
   }
 
+  /**
+   * Method for creating form
+   * setting validators and watching if login form values change
+   */
   createForm() {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3)]],
@@ -44,6 +48,11 @@ export class LoginComponent implements OnInit {
     this.loginForm.valueChanges
       .subscribe(data => this.onValueChanged(data))
   }
+
+  /**
+   * Filling formsErrors according to the errors while value occured changing
+   * @param data form data
+   */
 
   onValueChanged(data?: any) {
     if (!this.loginForm) { return; }

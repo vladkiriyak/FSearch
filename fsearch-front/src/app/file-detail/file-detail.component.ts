@@ -33,10 +33,19 @@ export class FileDetailComponent implements OnInit {
 
   }
 
+  /**
+   * This method turns us back to the previous page
+   */
+
   goBack() {
     this.location.back()
   }
 
+  /**
+   * This method sets the rigth indexof the file
+   * this is made for swiping files 
+   * @param fileId the curent file id
+   */
   setPrevNext(fileId: string) {
     const index = this.fileIds.indexOf(fileId)
     this.prev = this.fileIds[(this.fileIds.length + index - 1) % this.fileIds.length];
